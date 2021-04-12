@@ -40,6 +40,8 @@
   "devDependencies": {
     "@babel/core": "7.12.9",
     "@babel/runtime": "7.12.5",
+    "@commitlint/cli": "12.1.1",
+    "@commitlint/config-conventional": "12.1.1",
     "@microsoft/tsdoc": "0.13.0",
     "@react-native-community/eslint-config": "2.0.0",
     "@types/jest": "26.0.20",
@@ -69,6 +71,13 @@
   },
   "resolutions": {
     "@types/react": "17"
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,yml,yaml,ts,tsx,graphql}": [
+      "prettier --write './src/**/*.{js,jsx,ts,tsx,md,json}' --config ./.prettierrc.js",
+      "eslint --fix ./src/ --ext .js,.jsx,.ts,.tsx,.json",
+      "git add ."
+    ]
   },
   "jest": {
     "preset": "react-native",
